@@ -1,0 +1,18 @@
+{
+  "name": "auto_web_tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app_run.js",
+  "author": "hashbrwn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brwnhash/auto_web_tests/issues"
+  },
+  "homepage": "https://github.com/brwnhash/auto_web_tests#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "lodash": "^4.17.21",
+    "object-hash": "^3.0.0",
+    "puppeteer-core": "^14.0.0"
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id='title'> List of items
+</h1>
+<ul id='items'>
+  <li onclick="delayColorChange(this,'red')">coffee</li>
+  <li onclick="changeColor(this,'green')">Tea</li>
+  <li onclick="changeColor(this,'green')">Ice</li>
+  <li onclick="changeColor(this,'green')">Frappe</li>
+  <li onclick="resetItems(this)">Milk</li>
+  <li onclick="changeColor(this,'blue')">Juice</li>
+</ul> 
+<script>
+function changeColor(param,val) {
+  param.style.color = val;
+}
+
+function delayColorChange(param,val){
+setTimeout(()=>{
+   param.style.color=val;
+},3000);
+
+}
+function resetItems(param){
+   let elm=document.getElementById('items');
+   elm.remove()
+}
+</script>
+
+</body>
+</html>
+
