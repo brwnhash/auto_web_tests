@@ -21,18 +21,29 @@ Backward Pass - start with the last action and mutations .wait for maximum time,
 Forward Pass- is a confirmation loop that muatation connected to backward pass are correct.
 
 
-Running Test example:
+##Running Test example:
 
     install all code dependencies.
 
 1. Run server :
     node simple_server.js
+2. run chorme in debug mode on port 9222
+    google-chrome --remote-debugging-port=9222
+3. Get UID of chrome session .
+    http://127.0.0.1:9222/json/version
 
-2. Run app_run.js
+    {
+   "webSocketDebuggerUrl": "ws://127.0.0.1:9222/devtools/browser/9c80d6fc-b81e-456b-91fb-abd665a9113b"
+    }
+    session id is 9c80d6fc-b81e-456b-91fb-abd665a9113b.
+
+    Replace that in app_run.js
+    let uid = '9c80d6fc-b81e-456b-91fb-abd665a9113b'; 
+
+4. Run app_run.js
     node  app_run.js
 
-On run automatic exploring of click actions can be seen .For test action mutaion output will be dumped in "out" directory .
-which shows on which node path action taken and what is mutation w.r.t .
+On run automatic exploring of click actions will be observed .For test action mutaion output will be dumped in "out" directory .which shows on which node path action taken and what is mutation w.r.t that .
 
 
 
