@@ -47,7 +47,7 @@ Forward Pass- is a confirmation loop that muatation connected to backward pass a
 
 4. Run app_run.js
     
-      node  app_run.js
+        node  app_run.js
 
 On run automatic exploring of click actions will be observed .For test action mutaion output will be dumped in "out" directory .which shows on which node path action taken and what is mutation w.r.t that .
 
