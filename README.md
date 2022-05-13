@@ -5,14 +5,14 @@ of application . Things that we need are State of each node ,on which action nod
 
 We tried to have a proof of concept for building this Node Graph .
 
-##Problem Statement :
+## Problem Statement :
 Lets consider only click is the action that user takes then ,
 
 Node might be clicked now and it may have delayed response .
 Node click might change state of other nodes ,remove them or disable actions on them etc .But we want to explore action on those nodes as well ,if we dont take current action and have action directly on them .Conditional and non conditional actions.
 Exploring state and transitions for nodes which are newly added .
 
-##Solution:
+## Solution:
 
 This is essential a problem of state machine .Which has pre Events ,and then a action on it either creates nodes ,remove nodes or does a change in current attributes of nodes etc .
 To find action and mutuation we have built a forward backward learning method .
@@ -21,19 +21,19 @@ Backward Pass - start with the last action and mutations .wait for maximum time,
 Forward Pass- is a confirmation loop that muatation connected to backward pass are correct.
 
 
-##Running Test example:
+## Running Test example:
 
   install all code dependencies.
 
-1. ###Run server :
+### 1. Run server :
 
         node simple_server.js
     
-2. ###Run chorme in debug mode on port 9222
+### 2. Run chorme in debug mode on port 9222
 
         google-chrome --remote-debugging-port=9222
     
-3. ###Get UID of chrome session .
+### 3. Get UID of chrome session .
 
         http://127.0.0.1:9222/json/version
 
@@ -45,7 +45,7 @@ Forward Pass- is a confirmation loop that muatation connected to backward pass a
     Replace that in app_run.js
     let uid = '9c80d6fc-b81e-456b-91fb-abd665a9113b'; 
 
-4. ###Run app_run.js
+### 4. Run app_run.js
     
         node  app_run.js
 
