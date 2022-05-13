@@ -20,19 +20,20 @@ try {
     let actionExplorer = new ActionExplorer();
     (async function run() {
         try {
-            let uid = '630431e0-225a-4481-aadf-72457c139977';
+            let uid = '9c80d6fc-b81e-456b-91fb-abd665a9113b';
             const wsChromeEndpointurl = 'ws://127.0.0.1:9222/devtools/browser/' + uid;
             let browser = await puppeteer.connect({
                 browserWSEndpoint: wsChromeEndpointurl,
             });
-            
+            let mutation_store_path='out';
             const page = await browser.newPage();
             await page.setViewport({ width: 1366, height: 768 });
             await page.setBypassCSP(true);
             let url='http://localhost:5000';
             let nn = new NodeGraph();
-            let st = new StateBuilder(nn, page, { 'url': url, 'scripts_path': [helpers_path]});
+            let st = new StateBuilder(nn, page, { 'url': url, 'scripts_path': [helpers_path],'store_dir':mutation_store_path});
             await st.run();
+            page.close();
             console.log('dom recursion finished');
         } catch (err) {  
             console.log(err.message);

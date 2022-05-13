@@ -5,6 +5,8 @@ const { addDomListener, removeDomListener } = require('./dom_mutaion_listener');
 const { ActivityRecorder, GetActionMutationGroups, ApproxActionMutationLink } = require('./activityRecorder');
 const { timeout, ListMap } = require('./common');
 const { PageReload } = require('./dom_actions');
+const fs = require("fs");
+const path = require('path');
 
 class StateBuilder {
     constructor(node_graph, page, config) {
@@ -13,10 +15,26 @@ class StateBuilder {
         this.config = config;
         this.node_graph = node_graph;
         this.b_node_info = false;
+        this.createStoreDir(this.config['store_dir'])
         this.action_exp = new ActionExplorer();
         this.found_action_nodes = [];
         this.init_event = new PageReload(null, this.reLoadPage.bind(this));
 
+    }
+    createStoreDir(dir){
+        if (fs.existsSync(dir)) {
+            fs.rmdirSync(dir, { recursive: true });
+        }
+        try {
+            fs.mkdirSync(dir);
+        } catch (err) {
+            console.log(err);
+        }
+
+    }
+    addToStore(act_mut,iter){
+        let curr_path=path.join(this.config['store_dir'],iter.toString()+'.json')
+        fs.writeFileSync(curr_path, JSON.stringify(act_mut));
     }
     async _loadUtils(page) {
         this.page = page;
@@ -99,6 +117,7 @@ class StateBuilder {
         return [acts_data, acts_map];
 
     }
+
     async run() {
         try {
             let start_time = new Date().getTime();
@@ -129,10 +148,11 @@ class StateBuilder {
                 this.enableNodeInfo();
                 await this.reLoadPage();
                 let act_mut = await this.getActionMutation(acts_data.concat(mutations), acts_map);
-
+                this.addToStore(act_mut,num_pass);
                 [all_nodes, active_nodes] = await this.getMutatedNodes(act_mut, acts_data,acts_map);
                 active_nodes = this.node_graph.updateParentOfNodes(active_nodes);
                 mutations = [];
+                num_pass+=1;
             }
 
         } catch (err) {

@@ -5,14 +5,35 @@
 <h1 id='title'> List of items
 </h1>
 <ul id='items'>
-  <li onclick="delayColorChange(this,'red')">coffee</li>
+  <li onclick="changeColor(this,'red')">coffee</li>
   <li onclick="changeColor(this,'green')">Tea</li>
   <li onclick="changeColor(this,'green')">Ice</li>
   <li onclick="changeColor(this,'green')">Frappe</li>
   <li onclick="resetItems(this)">Milk</li>
   <li onclick="changeColor(this,'blue')">Juice</li>
 </ul> 
+<div> Nested Items
+<ul>
+<li onclick='appendItems(this)'> item </li>
+
+</ul>
+</div>
 <script>
+
+function appendItems(param){
+   if (param.childNodes.length>1) return;
+   let ul = document.createElement('ul');
+   for (let i=0;i<3;i++){  
+    let li = document.createElement('li');
+    li.textContent = 'item'+i.toString();
+    ul.appendChild(li);
+    }
+    let li = document.createElement('li');
+    li.textContent = '_____'
+    ul.appendChild(li); 
+    param.appendChild(ul);
+} 
+
 function changeColor(param,val) {
   param.style.color = val;
 }
@@ -31,4 +52,3 @@ function resetItems(param){
 
 </body>
 </html>
-
