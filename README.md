@@ -26,7 +26,6 @@ Forward Pass- is a confirmation loop that muatation connected to backward pass a
   install all code dependencies.
 
 1. Run server :
-<<<<<<< HEAD
     node simple_server.js
 2. run chorme in debug mode on port 9222
     google-chrome --remote-debugging-port=9222
@@ -45,16 +44,6 @@ Forward Pass- is a confirmation loop that muatation connected to backward pass a
     node  app_run.js
 
 On run automatic exploring of click actions will be observed .For test action mutaion output will be dumped in "out" directory .which shows on which node path action taken and what is mutation w.r.t that .
-=======
-        node simple_server.js
-
-2. Run app_run.js
-        node  app_run.js
-
-On run automatic exploring of click actions can be seen .For test action mutaion output will be dumped in "out" directory .
-which shows on which node path action taken and what is mutation w.r.t .
-Internally NodeGraph is built ,which stores whole state of DOM.
->>>>>>> 8dd4cc95dc5f55b295bac921e3e189625203c41a
 
 
 
