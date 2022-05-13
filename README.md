@@ -23,13 +23,13 @@ Forward Pass- is a confirmation loop that muatation connected to backward pass a
 
 Running Test example:
 
-    install all code dependencies.
+  install all code dependencies.
 
 1. Run server :
-    node simple_server.js
+        node simple_server.js
 
 2. Run app_run.js
-    node  app_run.js
+        node  app_run.js
 
 On run automatic exploring of click actions can be seen .For test action mutaion output will be dumped in "out" directory .
 which shows on which node path action taken and what is mutation w.r.t .
