@@ -6,7 +6,7 @@ of application . Things that we need are State of each node ,on which action nod
 We tried to have a proof of concept for building this Node Graph .
 
 ## Problem Statement :
-If we have nodes x1,x2,x3.......xN .  All nodes can be mutual independent or every node may be conditionaly dependent on other node or group of nodes .
+If we have nodes x1,x2,x3.......xN .  Nodes can be mutual independent or  node may be conditionaly dependent on other node or group of nodes .
 We have to find these relations which groups are dependent on each other or nodes which are creating other nodes or removing other nodes.
 
 Lets consider only user action is Click in that case what are scenarios that we may have to consider .
