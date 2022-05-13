@@ -24,6 +24,7 @@ Forward Pass- is a confirmation loop that muatation connected to backward pass a
 ## Running Test example:
 
   Install all code dependencies.
+        
         npm install
 
 ### 1. Run server :
